@@ -57,7 +57,7 @@
 
   (let
     (
-      (aNext (nextA a b)) (bNext (nextB a b)) () (pNext (nextP p))
+      (aNext (nextA a b)) (bNext (nextB a b)) (pNext (nextP p))
     )
     (let
       (
@@ -67,11 +67,9 @@
         (
           (nPie ( / (expt(+ aNext bNext) 2) (* 4 tNext) ))
         )
-        (myPi(aNext bNext tNext pNext nPie))
+        (myPi aNext bNext tNext pNext nPie)
       )
     )
-
-
   )
   ; (let
   ;   (
