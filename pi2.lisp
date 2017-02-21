@@ -32,16 +32,10 @@
 ;; Gauss-Legendre algorithm on Wikipedia
 ;; https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm
 
-(setf a 1L0)
-(setf b (/ 1L0 (sqrt 2L0)))
-(setf tt (/ 1L0 4L0))
-(setf p 1L0)
-(setf peepee 1L0)
-(setf pie 1L0)
 
-(defun Piep()
-  (pip a b tt p pie)
-)
+;(defun Piep()
+;  (pip a b tt p pie)
+;)
 
 (defun nextA (pA pB)
   (/(+ pA pB) 2)
@@ -51,7 +45,7 @@
   (sqrt (* pA pB))
 )
 
-(defun nextTT (pT pP pA nA)
+(defun nextT (pT pP pA nA)
   (- pT (expt (* pP (- pA nA)) 2))
 )
 
@@ -59,18 +53,54 @@
   (* 2 pP)
 )
 
-(defun pip (nA nB nT nP pie)
-  (if (> nP 1)
-    ;;(write (roundToPrecision pie 10000)
-    (write pie)
+(defun myPi (a b tt p pPie)
+
+  (let
+    (
+      (aNext (nextA a b)) (bNext (nextB a b)) () (pNext (nextP p))
+    )
+    (let
+      (
+        (tNext (nextT tt p a aNext))
+      )
+      (let
+        (
+          (nPie ( / (expt(+ aNext bNext) 2) (* 4 tNext) ))
+        )
+        (myPi(aNext bNext tNext pNext nPie))
+      )
+    )
+
+
   )
-  (setf pie
-    ( / (expt(+ nA nB) 2) (* 4 nT) )
-  )
-  (setf peepee p)
-  (setf p (nextP nP))
-  (pip (nextA nA nB) (nextB nA nB) (nextTT nT peepee nA (nextA nA nB)) peepee pie)
+  ; (let
+  ;   (
+  ;       (bNext (nextB a b))
+  ;   )
+  ; )
+  ; (let
+  ;   (
+  ;       (tNext (nextT tt p a aNext))
+  ;   )
+  ; )
+  ; (let
+  ;   (
+  ;       (pNext (nextP p))
+  ;   )
+  ; )
+  ; (let
+  ;   (
+  ;       (nPie ( / (expt(+ aNext bNext) 2) (* 4 tNext) ))
+  ;   )
+  ; )
+  ; (if (= pPie (roundToPrecision nPie 10000))
+  ;   (write(pPie))
+  ; )
+  ;
+  ; myPi(aNext bNext tNext pNext nPie)
+
+
 )
 
-(pip a b tt p pie)
+(myPi 1 (/ 1 (sqrt 2)) (/ 1 4) 1 1)
 ;;(write(pip a b tt p pie))
