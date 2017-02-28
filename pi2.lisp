@@ -65,40 +65,14 @@
       )
       (let
         (
-          (nPie ( / (expt(+ aNext bNext) 2) (* 4 tNext) ))
+          (nPie (roundToPrecision ( / (expt(+ aNext bNext) 2) (* 4 tNext) ) 10000))
         )
-        (myPi aNext bNext tNext pNext nPie)
+        (if (equal nPie pPie) nPie (myPi aNext bNext tNext pNext nPie))
+
       )
     )
   )
-  ; (let
-  ;   (
-  ;       (bNext (nextB a b))
-  ;   )
-  ; )
-  ; (let
-  ;   (
-  ;       (tNext (nextT tt p a aNext))
-  ;   )
-  ; )
-  ; (let
-  ;   (
-  ;       (pNext (nextP p))
-  ;   )
-  ; )
-  ; (let
-  ;   (
-  ;       (nPie ( / (expt(+ aNext bNext) 2) (* 4 tNext) ))
-  ;   )
-  ; )
-  ; (if (= pPie (roundToPrecision nPie 10000))
-  ;   (write(pPie))
-  ; )
-  ;
-  ; myPi(aNext bNext tNext pNext nPie)
-
-
 )
 
-(myPi 1 (/ 1 (sqrt 2)) (/ 1 4) 1 1)
+(write (coerce(myPi 1L0 (/ 1L0 (sqrt 2L0)) (/ 1L0 4L0) 1L0 3L0) 'long-float))
 ;;(write(pip a b tt p pie))

@@ -20,7 +20,7 @@ nil
 (cons 2 (cons 4 nil))
 
 ;; Append a list to another with append
-(append (list 1 2) (list 3 4))
+(write(append (list 1 2) (list 3 4)))
 
 ;; Reverse a list with nreverse
 (nreverse (list 1 2 3))

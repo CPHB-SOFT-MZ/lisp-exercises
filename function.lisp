@@ -34,7 +34,12 @@ nil
 ;; Exercise 1
 ;; Implement the function 'adder' below so that it adds 2 to each element in
 ;; the list, puts it in a new list and returns that list
-(defun adder (l) l)
+(defun adder (l)
+  (if(equal l nil)
+    nil
+    (cons (+ (car l) 2) (adder (cdr l)))
+  )
+)
 
 (write (adder (list 4 8 15 16 23 42))) ;; this should return (6 10 17 18 25 44)
 
